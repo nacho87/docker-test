@@ -1,0 +1,14 @@
+{
+  "name": "apache-ngnix",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "apache": "docker stop my-running-app; docker rm my-running-app && docker build -t my-apache2 . && docker run -dit --name my-running-app -p 8080:80 my-apache2",
+    "website-apache": "docker stop website-apache;docker rm website-apache;docker run -d -p 80:80 --name website-apache -v $(pwd):/usr/local/apache2/htdocs:ro httpd",
+    "website-compose": "docker-compose up -d",
+    "website-compose-down": "docker-compose down"
+  },
+  "author": "",
+  "license": "ISC"
+}
